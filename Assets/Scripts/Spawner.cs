@@ -5,7 +5,15 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject asteroid;
+    public static Spawner instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+    }
 
     // Use this for initialization
     void Start()

@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.tag == "Asteroid")
         {
+            Destroy(Spawner.instance);
+            UIHandler.instance.ShowEndPanel();
             Debug.Log("You Lose");
             Destroy(gameObject);
         }
